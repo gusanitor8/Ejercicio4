@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Ejercicio4 {
     public static void main(String[] args){
        init();
@@ -7,11 +9,10 @@ public class Ejercicio4 {
         int x = Vista.askNumPlayers();
         for (int i = 0; i < x; i++){
             if (Vista.askIsGuerrero()){
-                Vista.askPlayerName(i);
+                Guerrero guerrero = new Guerrero(Vista.askPlayerName(i), Combatiente.playersInCombat);
+            }else{
+                Explorador explorador = new Explorador(Vista.askPlayerName(i), Combatiente.playersInCombat);
             }
-
-
         }
-
     }
 }
