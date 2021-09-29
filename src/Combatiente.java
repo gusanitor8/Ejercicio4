@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Combatiente {
     protected int life;
     protected int attack;
@@ -8,8 +10,10 @@ public class Combatiente {
     public static Jugador[] playersInCombat = new Jugador[5];
     public static Enemigo[] enemiesInCombat = new Enemigo[5];
     public static Enemigo enemyBoss;
+    private Random rand = new Random();
 
-    public Combatiente(){}
+    public Combatiente(){
+    }
 
     public void setPoisoned(boolean poisoned) {
         this.poisoned = poisoned;
