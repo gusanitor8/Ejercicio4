@@ -3,7 +3,11 @@ public class Alien extends Enemigo{
         super();
     }
 
-    public Alien(Enemigo[] enemigos){
-        super(enemigos);
+    public Alien(Enemigo[] enemigos, String name){
+        super(enemigos, name);
+    }
+
+    public void skill(Jugador jugador){
+        jugador.life = jugador.life -7;
     }
 }

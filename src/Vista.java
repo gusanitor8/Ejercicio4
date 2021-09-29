@@ -43,6 +43,47 @@ public class Vista {
         return nombre;
     }
 
+    public static String askEnemyName(int enemyNum){
+        String nombre = null;
+
+        System.out.println("Ingrese el nombre del enemigo " + (enemyNum + 1) +": ");
+        try{
+            input.nextLine();
+            nombre = input.nextLine();
+        }catch(NoSuchElementException e){
+            e.printStackTrace();
+        }
+        return nombre;
+    }
+
+    public static String enemyToAttack(){
+        String name = null;
+        System.out.println("Ingrese el nombre del enemigo que quiere atacar: ");
+        try {
+            input.nextLine();
+            name = input.nextLine();
+        }catch (NoSuchElementException e){
+            e.printStackTrace();
+        }catch (IllegalStateException e){
+            e.printStackTrace();
+        }
+        return name;
+    }
+
+    public static String playerToAttack(){
+        String name = null;
+        System.out.println("Ingrese el nombre del jugador que quiere atacar: ");
+        try {
+            input.nextLine();
+            name = input.nextLine();
+        }catch (NoSuchElementException e){
+            e.printStackTrace();
+        }catch (IllegalStateException e){
+            e.printStackTrace();
+        }
+        return name;
+    }
+
     public static boolean askIsGuerrero(){
         int opcion = 0;
         boolean isGuerrero = false;
@@ -69,5 +110,56 @@ public class Vista {
                 break;
         }
         return isGuerrero;
+    }
+
+    public static int menuPlayer(){
+        int opcion = 0;
+        System.out.println("Ingrese una opcion \n" +
+                            "1. Atacar \n" +
+                            "2. Usar Item \n" +
+                            "3. Pass \n" +
+                            "4. Abandonar Partida \n");
+
+        try{
+            opcion = input.nextInt();
+        }catch(InputMismatchException e){
+            System.out.println("Favor ingresar una opcion valida");
+            input.next();
+            opcion = menuPlayer();
+        }
+        return opcion;
+    }
+
+    public static int menuEnemy(){
+        int opcion = 0;
+        System.out.println("Ingrese una opcion \n" +
+                            "1. Atacar \n" +
+                            "2. Usar Special \n" +
+                            "3. Pass \n" +
+                            "4. Abandonar Partida \n");
+        try{
+            opcion = input.nextInt();
+        }catch(InputMismatchException e){
+            System.out.println("Favor ingresar una opcion valida");
+            input.next();
+            opcion = menuPlayer();
+        }
+        return opcion;
+    }
+
+    public static void displayMessage(String message){
+        System.out.println(message);
+    }
+
+    public static void passed(){
+        System.out.println("Usted se ha saltado su turno \n");
+    }
+
+    public static void fighterNotFound(){
+        System.out.println("El combatiente que ingreso no existe");
+    }
+
+    public static void attackMade(){
+        System.out.println("Se ha hecho un ataque");
     }
 }

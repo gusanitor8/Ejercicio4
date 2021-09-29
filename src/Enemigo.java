@@ -3,8 +3,15 @@ public  class Enemigo extends Combatiente{
         super();
     }
 
-    public Enemigo(Enemigo[] enemigos){
+    public Enemigo(Enemigo[] enemigos, String name){
         super();
+        addMe(enemigos);
+        this.name = name;
+
+    }
+
+    public void skill(Jugador jugador){
+
     }
 
     public void addMe(Enemigo[] enemiesInCombat){
